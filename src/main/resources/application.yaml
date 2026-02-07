@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-data-jpa-store
+  datasource:
+    url: jdbc:mysql://localhost:3306/store?CreateDatabaseIfNotExist=true
+    username: root
+    password: gkb4u15
+

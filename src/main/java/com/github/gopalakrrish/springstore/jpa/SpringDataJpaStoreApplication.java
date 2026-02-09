@@ -24,8 +24,7 @@ public class SpringDataJpaStoreApplication {
 				.zip("zip1")
 				.build();
 
-		user.getAddresses().add(address);
-		address.setUser(user);
+		user.addAddress(address);
 
 		System.out.println(user);
 

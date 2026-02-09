@@ -1,9 +1,12 @@
 package com.github.gopalakrrish.springstore.jpa.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -25,4 +28,9 @@ public class Address {
 
     @Column(name = "state")
     private String state;
+
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

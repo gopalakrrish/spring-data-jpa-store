@@ -1,9 +1,15 @@
 package com.github.gopalakrrish.springstore.jpa.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -22,5 +28,9 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Address> addresses = new ArrayList<>();
 
 }

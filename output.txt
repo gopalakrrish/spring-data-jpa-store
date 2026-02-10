@@ -1,1 +1,1 @@
-User(id=null, name=John, email=john@gmail.com, password=1234, addresses=[Address(id=null, street=street1, city=city1, zip=zip1, state=state1)])
+User(id=null, name=John, email=john@gmail.com, password=1234, addresses=[], tags=[Tag(id=null, name=tag1)])

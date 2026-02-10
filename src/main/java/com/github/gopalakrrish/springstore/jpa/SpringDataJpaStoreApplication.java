@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.springstore.jpa;
 
 import com.github.gopalakrrish.springstore.jpa.entities.Address;
+import com.github.gopalakrrish.springstore.jpa.entities.Tag;
 import com.github.gopalakrrish.springstore.jpa.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,14 +18,8 @@ public class SpringDataJpaStoreApplication {
 				.password("1234")
 				.build();
 
-		var address = Address.builder()
-				.street("street1")
-				.city("city1")
-				.state("state1")
-				.zip("zip1")
-				.build();
 
-		user.addAddress(address);
+		user.addTag("tag1");
 
 		System.out.println(user);
 

@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.springstore.jpa;
 
 import com.github.gopalakrrish.springstore.jpa.entities.Address;
+import com.github.gopalakrrish.springstore.jpa.entities.Profile;
 import com.github.gopalakrrish.springstore.jpa.entities.Tag;
 import com.github.gopalakrrish.springstore.jpa.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +20,12 @@ public class SpringDataJpaStoreApplication {
 				.build();
 
 
-		user.addTag("tag1");
+		var profile = Profile.builder()
+				.bio("xyz")
+				.build();
+
+		user.setProfile(profile);
+		profile.setUser(user);
 
 		System.out.println(user);
 

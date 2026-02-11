@@ -57,4 +57,7 @@ public class User {
         tag.getUsers().add(this);
     }
 
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
+
 }

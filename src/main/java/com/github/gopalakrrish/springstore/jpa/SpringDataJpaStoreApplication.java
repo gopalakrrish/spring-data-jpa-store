@@ -1,11 +1,9 @@
 package com.github.gopalakrrish.springstore.jpa;
 
-import com.github.gopalakrrish.springstore.jpa.entities.Address;
-import com.github.gopalakrrish.springstore.jpa.entities.Profile;
-import com.github.gopalakrrish.springstore.jpa.entities.Tag;
-import com.github.gopalakrrish.springstore.jpa.entities.User;
-import org.springframework.boot.SpringApplication;
+import com.github.gopalakrrish.springstore.jpa.entities.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
 
 @SpringBootApplication
 public class SpringDataJpaStoreApplication {
@@ -13,22 +11,22 @@ public class SpringDataJpaStoreApplication {
 	public static void main(String[] args) {
 //		SpringApplication.run(SpringDataJpaStoreApplication.class, args);
 
-		var user = User.builder()
-				.name("John")
-				.email("john@gmail.com")
-				.password("1234")
-				.build();
+		var product = new Product();
+		product.setId(1L);
+		product.setName("product1");
+		product.setDescription("this is product1");
+		product.setPrice(BigDecimal.TEN);
 
+		var category = new Category();
+		category.setId((byte) 1);
+		category.setName("category1");
 
-		var profile = Profile.builder()
-				.bio("xyz")
-				.build();
+//		category.addProduct(product);
+		category.getProducts().add(product);
+		product.setCategory(category);
 
-		user.setProfile(profile);
-		profile.setUser(user);
-
-		System.out.println(user);
-
+		System.out.println(product);
+		System.out.println(category);
 	}
 
 }

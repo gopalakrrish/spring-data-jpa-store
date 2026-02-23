@@ -2,7 +2,6 @@ package com.github.gopalakrrish.springstore.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -32,4 +31,15 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+/* Bidirectional mapping intentionally omitted.
+   Wishlist is modeled as a unidirectional relationship from User to Product
+   since retrieving users who wishlisted a product is generally not required.
+   This can be enabled later if such navigation becomes necessary.
+
+   Note: Add bidirectional mapping if product → wishlisted users navigation is required
+   @ManyToMany(mappedBy = "wishlist")
+   private Set<User> wishlistedBy = new HashSet<>();
+*/
+
 }

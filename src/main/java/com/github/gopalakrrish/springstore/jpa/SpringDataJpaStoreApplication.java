@@ -17,16 +17,13 @@ public class SpringDataJpaStoreApplication {
 		product.setDescription("this is product1");
 		product.setPrice(BigDecimal.TEN);
 
-		var category = new Category();
-		category.setId((byte) 1);
-		category.setName("category1");
+		var user = User.builder()
+						.name("user1")
+						.build();
 
-//		category.addProduct(product);
-		category.getProducts().add(product);
-		product.setCategory(category);
+		user.addToWishlist(product);
 
-		System.out.println(product);
-		System.out.println(category);
+		System.out.println(user);
 	}
 
 }

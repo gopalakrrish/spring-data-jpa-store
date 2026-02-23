@@ -1,2 +1,1 @@
-Product(id=1, name=product1, description=this is product1, price=10)
-Category(id=1, name=category1, products=[Product(id=1, name=product1, description=this is product1, price=10)])
+User(id=null, name=user1, email=null, password=null, addresses=[], tags=[], profile=null, wishlist=[Product(id=1, name=product1, description=this is product1, price=10)])

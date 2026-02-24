@@ -3,6 +3,7 @@ package com.github.gopalakrrish.springstore.jpa.services;
 import com.github.gopalakrrish.springstore.jpa.entities.User;
 import com.github.gopalakrrish.springstore.jpa.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
 
+    @Transactional
     public void showEntityStates() {
         var user = User.builder()
                 .name("John Doe")

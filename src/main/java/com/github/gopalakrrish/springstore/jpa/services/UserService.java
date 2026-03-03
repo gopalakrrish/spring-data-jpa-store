@@ -36,6 +36,7 @@ public class UserService {
 
     }
 
+    @Transactional
     public void showRelatedEntities() {
         var user = userRepository.findById(5L).orElseThrow();
         System.out.println(user.getEmail());
@@ -43,7 +44,7 @@ public class UserService {
         var profile = profileRepository.findById(3L).orElseThrow();
         System.out.println(profile);
 
-        // This will now throw LazyInitializationException
+        // Now works because persistence context is active
         System.out.println(profile.getUser().getEmail());
     }
 }

@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
 import com.github.gopalakrrish.springstore.jpa.entities.User;
+import com.github.gopalakrrish.springstore.jpa.repositories.ProfileRepository;
 import com.github.gopalakrrish.springstore.jpa.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     @Transactional
@@ -32,5 +34,15 @@ public class UserService {
                 ? "Persistent"
                 : "Transient/Detached");
 
+    }
+
+    public void showRelatedEntities() {
+        var user = userRepository.findById(5L).orElseThrow();
+        System.out.println(user.getEmail());
+
+        var profile = profileRepository.findById(3L).orElseThrow();
+        System.out.println(profile);
+
+        System.out.println(profile.getUser().getEmail());
     }
 }

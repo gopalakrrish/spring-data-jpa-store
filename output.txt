@@ -1,5 +1,5 @@
 Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password,p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number from users u1_0 left join profiles p1_0 on u1_0.id=p1_0.id where u1_0.id=?
 john.doe@email.com
-Hibernate: select p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number,u1_0.id,u1_0.email,u1_0.name,u1_0.password from profiles p1_0 join users u1_0 on u1_0.id=p1_0.id where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number from profiles p1_0 where p1_0.id=?
 Profile(id=3, bio=bio3, phoneNumber=null, dateOfBirth=null, loyaltyPoints=null)
-john@gmail.com
+Exception in thread "main" org.hibernate.LazyInitializationException: Could not initialize proxy [com.github.gopalakrrish.springstore.jpa.entities.User#3] - no session

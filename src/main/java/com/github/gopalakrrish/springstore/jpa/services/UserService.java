@@ -43,6 +43,7 @@ public class UserService {
         var profile = profileRepository.findById(3L).orElseThrow();
         System.out.println(profile);
 
+        // This will now throw LazyInitializationException
         System.out.println(profile.getUser().getEmail());
     }
 }

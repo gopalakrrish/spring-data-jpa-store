@@ -1,7 +1,3 @@
 Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password,p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number from users u1_0 left join profiles p1_0 on u1_0.id=p1_0.id where u1_0.id=?
 Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
-Hibernate: delete from user_tags where user_id=?
-Hibernate: delete from wishlist where user_id=?
 Hibernate: delete from addresses where id=?
-Hibernate: delete from profiles where id=?
-Hibernate: delete from users where id=?

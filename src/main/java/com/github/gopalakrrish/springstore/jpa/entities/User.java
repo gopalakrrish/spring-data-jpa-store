@@ -2,6 +2,7 @@ package com.github.gopalakrrish.springstore.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @Builder.Default
     private List<Address> addresses = new ArrayList<>();
 
@@ -57,7 +58,7 @@ public class User {
         tag.getUsers().add(this);
     }
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
     private Profile profile;
 
     @Builder.Default

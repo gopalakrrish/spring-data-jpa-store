@@ -68,6 +68,5 @@ public class UserService {
         user.addAddress(address);
 
         userRepository.save(user);
-        addressRepository.save(address);
     }
 }

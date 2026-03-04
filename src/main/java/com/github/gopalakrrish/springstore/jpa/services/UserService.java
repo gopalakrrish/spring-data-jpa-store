@@ -1,6 +1,8 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
+import com.github.gopalakrrish.springstore.jpa.entities.Address;
 import com.github.gopalakrrish.springstore.jpa.entities.User;
+import com.github.gopalakrrish.springstore.jpa.repositories.AddressRepository;
 import com.github.gopalakrrish.springstore.jpa.repositories.ProfileRepository;
 import com.github.gopalakrrish.springstore.jpa.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -14,6 +16,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -46,5 +49,25 @@ public class UserService {
 
         // Now works because persistence context is active
         System.out.println(profile.getUser().getEmail());
+    }
+
+    public void persistRelated() {
+        var user = User.builder()
+                .name("Sachin")
+                .email("sachin@gmail.com")
+                .password("sachin1234")
+                .build();
+
+        var address = Address.builder()
+                .street("street")
+                .city("city")
+                .state("state")
+                .zip("zip")
+                .build();
+
+        user.addAddress(address);
+
+        userRepository.save(user);
+        addressRepository.save(address);
     }
 }

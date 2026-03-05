@@ -20,6 +20,7 @@ public class UserService {
     private final EntityManager entityManager;
     private final AddressRepository addressRepository;
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -81,13 +82,14 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     public void manageProducts() {
-        var category = new Category("Category 1");
+        var category = categoryRepository.findById((byte) 1).orElseThrow();
 
         var product = Product.builder()
-                .name("product 1")
+                .name("product 3")
                 .price(BigDecimal.TEN)
-                .description("This is product 1")
+                .description("This is product 3")
                 .category(category)
                 .build();
 

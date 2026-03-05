@@ -1,14 +1,16 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
 import com.github.gopalakrrish.springstore.jpa.entities.Address;
+import com.github.gopalakrrish.springstore.jpa.entities.Category;
+import com.github.gopalakrrish.springstore.jpa.entities.Product;
 import com.github.gopalakrrish.springstore.jpa.entities.User;
-import com.github.gopalakrrish.springstore.jpa.repositories.AddressRepository;
-import com.github.gopalakrrish.springstore.jpa.repositories.ProfileRepository;
-import com.github.gopalakrrish.springstore.jpa.repositories.UserRepository;
+import com.github.gopalakrrish.springstore.jpa.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Service
@@ -17,6 +19,7 @@ public class UserService {
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -76,5 +79,19 @@ public class UserService {
         var address = user.getAddresses().getFirst();
         user.removeAddress(address);
         userRepository.save(user);
+    }
+
+    public void manageProducts() {
+        var category = new Category("Category 1");
+
+        var product = Product.builder()
+                .name("product 1")
+                .price(BigDecimal.TEN)
+                .description("This is product 1")
+                .category(category)
+                .build();
+
+        productRepository.save(product);
+
     }
 }

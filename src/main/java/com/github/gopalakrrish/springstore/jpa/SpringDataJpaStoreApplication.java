@@ -11,7 +11,7 @@ public class SpringDataJpaStoreApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SpringDataJpaStoreApplication.class, args);
 		var userService = context.getBean(UserService.class);
-		userService.deleteRelated();
+		userService.manageProducts();
 
 	}
 

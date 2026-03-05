@@ -1,12 +1,13 @@
 package com.github.gopalakrrish.springstore.jpa.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Setter
 @Getter
@@ -28,7 +29,7 @@ public class Product {
     private BigDecimal price;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
     private Category category;
 

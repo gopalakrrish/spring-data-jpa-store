@@ -72,11 +72,9 @@ public class User {
 
     public void addToWishlist(Product product) {
         wishlist.add(product);
-//        product.getWishlistedBy().add(this);
     }
 
     public void removeFromWishlist(Product product) {
         wishlist.remove(product);
-//        product.getWishlistedBy().remove(this);
     }
 }

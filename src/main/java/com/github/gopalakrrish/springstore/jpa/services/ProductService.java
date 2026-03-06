@@ -1,5 +1,6 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
+import com.github.gopalakrrish.springstore.jpa.entities.Category;
 import com.github.gopalakrrish.springstore.jpa.repositories.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -20,5 +21,10 @@ public class ProductService {
     @Transactional
     public  void updateProductPrices() {
         productRepository.updatePriceByCategory(BigDecimal.valueOf(10.5), (byte) 1);
+    }
+
+    public void fetchProducts() {
+        var products = productRepository.findByCategory(new Category((byte) 1));
+        products.forEach(System.out::println);
     }
 }

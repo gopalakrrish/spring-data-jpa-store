@@ -1,4 +1,1 @@
-Hibernate: select * from products p where p.price between ? and ? order  by p.price desc
-Hibernate: select c1_0.id,c1_0.name from categories c1_0 where c1_0.id=?
-Hibernate: select c1_0.id,c1_0.name from categories c1_0 where c1_0.id=?
-[Product(id=1, name=product 1, description=This is product 1, price=10.00), Product(id=3, name=productA, description=This is product A, price=7.99), Product(id=2, name=product 2, description=This is product 2, price=5.99)]
+Hibernate: update products p1_0 set price=? where p1_0.category_id=?

@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
 import com.github.gopalakrrish.springstore.jpa.repositories.ProductRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,10 @@ public class ProductService {
     public void getProducts() {
         var products = productRepository.findProducts(BigDecimal.valueOf(5), BigDecimal.valueOf(10));
         System.out.println(products);
+    }
+
+    @Transactional
+    public  void updateProductPrices() {
+        productRepository.updatePriceByCategory(BigDecimal.valueOf(10.5), (byte) 1);
     }
 }

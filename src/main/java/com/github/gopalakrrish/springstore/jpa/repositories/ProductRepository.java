@@ -1,5 +1,6 @@
 package com.github.gopalakrrish.springstore.jpa.repositories;
 
+import com.github.gopalakrrish.springstore.jpa.dtos.ProductSummary;
 import com.github.gopalakrrish.springstore.jpa.entities.Category;
 import com.github.gopalakrrish.springstore.jpa.entities.Product;
 import org.springframework.data.jpa.repository.Modifying;
@@ -19,5 +20,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("update Product p set p.price = :newPrice where p.category.id = :categoryId")
     void updatePriceByCategory(BigDecimal newPrice, Byte categoryId);
 
-    List<Product> findByCategory(Category category);
+    List<ProductSummary> findByCategory(Category category);
 }

@@ -1,4 +1,3 @@
-Hibernate: select p1_0.id,p1_0.category_id,p1_0.description,p1_0.name,p1_0.price from products p1_0 where p1_0.category_id=?
-Hibernate: select c1_0.id,c1_0.name from categories c1_0 where c1_0.id=?
-Product(id=1, name=product 1, description=This is product 1, price=10.50)
-Product(id=6, name=product 3, description=This is product 3, price=10.50)
+Hibernate: select p1_0.id,p1_0.name from products p1_0 where p1_0.category_id=?
+{name=product 1, id=1}
+{name=product 3, id=6}

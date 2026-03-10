@@ -90,8 +90,9 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     public void fetchUser() {
         var user = userRepository.findByEmail("john@gmail.com").orElseThrow();
-        System.out.println(user.getId());
+        System.out.println(user);
     }
 }

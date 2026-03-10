@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -76,5 +75,15 @@ public class User {
 
     public void removeFromWishlist(Product product) {
         wishlist.remove(product);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

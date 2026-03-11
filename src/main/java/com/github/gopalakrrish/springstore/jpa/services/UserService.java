@@ -97,7 +97,7 @@ public class UserService {
 
     @Transactional
     public void fetchUsers() {
-        var users = userRepository.findAll();
+        var users = userRepository.findAllWithAddresses();
         users.forEach((User u) -> {
             System.out.println(u);
             u.getAddresses().forEach(System.out::println);

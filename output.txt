@@ -1,3 +1,18 @@
-Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password,t1_0.user_id,t1_1.id,t1_1.name from users u1_0 left join user_tags t1_0 on u1_0.id=t1_0.user_id left join tags t1_1 on t1_1.id=t1_0.tag_id where u1_0.email=?
-Hibernate: select p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number from profiles p1_0 where p1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0
 User{id=4, name='John', email='john@gmail.com', password='1234'}
+Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
+Address(id=2, street=street 2, city=city 2, zip=zip 2, state=state 2)
+User{id=5, name='John Doe', email='john.doe@email.com', password='abed'}
+Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
+Address(id=3, street=street 3, city=city 3, zip=zip 3, state=state 3)
+Address(id=4, street=street 4, city=city 4, zip=zip 4, state=state 4)
+Address(id=5, street=street 5, city=city 5, zip=zip 5, state=state 5)
+User{id=6, name='John Doe', email='john.doe@email.com', password='abed'}
+Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
+Address(id=6, street=street 6, city=city 6, zip=zip 6, state=state 6)
+Address(id=7, street=street 7, city=city 7, zip=zip 7, state=state 7)
+User{id=7, name='John Doe', email='john.doe@email.com', password='abed'}
+Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
+User{id=8, name='John Doe', email='john.doe@email.com', password='abed'}
+Hibernate: select a1_0.user_id,a1_0.id,a1_0.city,a1_0.state,a1_0.street,a1_0.zip from addresses a1_0 where a1_0.user_id=?
+Address(id=8, street=street 8, city=city 8, zip=zip 8, state=state 8)

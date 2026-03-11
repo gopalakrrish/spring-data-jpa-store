@@ -57,8 +57,8 @@ public class User {
         tag.getUsers().add(this);
     }
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private Profile profile;
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+//    private Profile profile;
 
     @Builder.Default
     @ManyToMany

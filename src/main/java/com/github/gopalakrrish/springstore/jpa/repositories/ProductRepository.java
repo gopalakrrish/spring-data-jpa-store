@@ -6,6 +6,7 @@ import com.github.gopalakrrish.springstore.jpa.entities.Category;
 import com.github.gopalakrrish.springstore.jpa.entities.Product;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
@@ -23,4 +24,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Query("select p from Product p where p.category = :category")
     List<ProductSummaryDTO> findByCategory(@Param("category") Category category);
+
+    @Procedure("findProductsByPrice")
+    List<Product> findProductsUsingSP(BigDecimal min, BigDecimal max);
 }

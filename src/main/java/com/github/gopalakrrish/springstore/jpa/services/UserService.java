@@ -7,8 +7,6 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-
 @AllArgsConstructor
 @Service
 public class UserService {
@@ -103,7 +101,7 @@ public class UserService {
 
     @Transactional
     public void printLoyalProfiles() {
-        var profiles = profileRepository.findByLoyaltyPointsGreaterThan(2);
-        profiles.forEach(p -> System.out.println(p.getId() + ": " + p.getUser().getEmail()));
+        var profiles = profileRepository.findLoyalProfiles(2);
+        profiles.forEach(p -> System.out.println(p.getId() + ": " + p.getEmail()));
     }
 }

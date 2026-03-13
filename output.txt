@@ -1,4 +1,7 @@
-Hibernate: {call findProductsByPrice(?,?)}
-Hibernate: select c1_0.id,c1_0.name from categories c1_0 where c1_0.id=?
-Product(id=2, name=product 2, description=This is product 2, price=5.99)
-Product(id=3, name=productA, description=This is product A, price=7.99)
+Hibernate: select p1_0.id,p1_0.bio,p1_0.date_of_birth,p1_0.loyalty_points,p1_0.phone_number from profiles p1_0 where p1_0.loyalty_points>?
+Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0 where u1_0.id=?
+4: john@gmail.com
+Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0 where u1_0.id=?
+7: john.doe@email.com
+Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0 where u1_0.id=?
+16: sachin@gmail.com

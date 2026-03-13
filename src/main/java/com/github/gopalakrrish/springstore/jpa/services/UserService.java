@@ -1,9 +1,6 @@
 package com.github.gopalakrrish.springstore.jpa.services;
 
-import com.github.gopalakrrish.springstore.jpa.entities.Address;
-import com.github.gopalakrrish.springstore.jpa.entities.Category;
-import com.github.gopalakrrish.springstore.jpa.entities.Product;
-import com.github.gopalakrrish.springstore.jpa.entities.User;
+import com.github.gopalakrrish.springstore.jpa.entities.*;
 import com.github.gopalakrrish.springstore.jpa.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -102,5 +99,11 @@ public class UserService {
             System.out.println(u);
             u.getAddresses().forEach(System.out::println);
         });
+    }
+
+    @Transactional
+    public void printLoyalProfiles() {
+        var profiles = profileRepository.findByLoyaltyPointsGreaterThan(2);
+        profiles.forEach(p -> System.out.println(p.getId() + ": " + p.getUser().getEmail()));
     }
 }

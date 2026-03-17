@@ -1,4 +1,4 @@
-Hibernate: select p1_0.id,u1_0.email from profiles p1_0 join users u1_0 on u1_0.id=p1_0.id where p1_0.loyalty_points>?
+Hibernate: select u1_0.id,u1_0.email from users u1_0 join profiles p1_0 on u1_0.id=p1_0.id where p1_0.loyalty_points>?
 4: john@gmail.com
 7: john.doe@email.com
 16: sachin@gmail.com
